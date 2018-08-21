@@ -1,6 +1,6 @@
-# metodo
+# Metodo
 
-## Tema: Métodos Formal - ANTRL
+## Tema: Método Formal - ANTRL
 
 ## Integrantes:
   * Fernando Henrique,
