@@ -1,12 +1,13 @@
 # metodo
 
-## Tema:
+## Tema: Métodos Formal - ANTRL
 
 ## Integrantes:
   * Fernando Henrique,
   * Saulo Araujo Calixto,
   * Marcos Rafael Lapa de Sousa,
   * Kayo Martins.
+  * Murillo Gordo de Andrade
   
   ## Planjemento das atividades:
   - Encontrar material refente ao tema.
