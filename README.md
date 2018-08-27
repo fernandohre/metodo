@@ -17,10 +17,10 @@
 
 | Atividade  | Período | Envolvidos |
 | ------------- | ------------- | ------------- |
-| Levantamento de material  | 20/08 à 27/08  | Todos |
-| Prática com a ferramenta  | 27/08 à 10/09  | Todos |
-| Escolha do projeto para tutorial  | 10/09 à 17/09  | Todos |
-| Aprimorar projeto  | 17/09 à 24/09 | Saulo e Fernando |
-| Elaboração do artigo  | 24/09 à 08/10  | Todos |
-| Estruturação do conteúdo para apresentação  | 08/10 à 15/10  | Todos |
-| Apresentação  | 15/10 à 17/10  | Todos |
+| Cada integrante apresentar pelo menos um material de referência | 20/08 à 27/08  | Todos |
+| Cada integrante elaborará um projeto utilizando a ferramenta | 27/08 à 10/09  | Todos |
+| Escolha do projeto para tutorial | 10/09 à 17/09  | Todos |
+| Aprimorar projeto escolhido | 17/09 à 24/09 | Saulo e Fernando |
+| Elaboração do artigo | 24/09 à 08/10 | Todos |
+| Estruturação do conteúdo para apresentação | 08/10 à 15/10  | Todos |
+| Apresentação | 15/10 à 17/10  | Todos |
