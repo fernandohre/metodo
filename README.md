@@ -24,3 +24,9 @@
 | Elaboração do artigo | 24/09 à 08/10 | Todos |
 | Estruturação do conteúdo para apresentação | 08/10 à 15/10  | Todos |
 | Apresentação | 15/10 à 17/10  | Todos |
+
+  ## Referências:
+  
+  1. [ANTRL](http://www.antlr.org/)
+  
+  2. [The ANTLR Mega Tutorial](https://tomassetti.me/antlr-mega-tutorial/)
