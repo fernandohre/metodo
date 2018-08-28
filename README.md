@@ -28,5 +28,4 @@
   ## Referências:
   
   1. [ANTRL](http://www.antlr.org/)
-  
   2. [The ANTLR Mega Tutorial](https://tomassetti.me/antlr-mega-tutorial/)
