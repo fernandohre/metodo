@@ -1,6 +1,6 @@
 # MÉTODOS E FERRAMENTAS DE ENGENHARIA DE SOFTWARE
 
-## Tema: Método Formal - [ANTRL](http://www.antlr.org/)
+## Tema: Método Formal - [ANTLR](http://www.antlr.org/)
 
 ## Integrantes:
   * Fernando Henrique Quicano Callata,
@@ -11,7 +11,7 @@
   
   ## Objetivo
   
-  Em um primeiro momento a ideia é oferecer um tutorial para o uso da ferramenta de parser ANTRL. Além disso também é foco do trabalho mostrar os benefícios de se utilizar essa ferramenta para auxílio no desenvolvimento.
+  Em um primeiro momento a ideia é oferecer um tutorial para o uso da ferramenta de parser ANTLR. Além disso também é foco do trabalho mostrar os benefícios de se utilizar essa ferramenta para auxílio no desenvolvimento.
   
   ## Planjemento das atividades:
 
@@ -27,7 +27,7 @@
 
   ## Referências:
   
-  1. [ANTRL](http://www.antlr.org/)
+  1. [ANTLR](http://www.antlr.org/)
   2. [The ANTLR Mega Tutorial](https://tomassetti.me/antlr-mega-tutorial/)
-  3. [ANTRL Repository](https://github.com/antlr/antlr4)
-  4. [Sung Kyun Kwan University ANTRL Tutorial](http://arcs.skku.edu/pmwiki/uploads/Courses/ProgrammingLanguages/ANTLR-tutorial.pdf)
+  3. [ANTLR Repository](https://github.com/antlr/antlr4)
+  4. [Sung Kyun Kwan University ANTLR Tutorial](http://arcs.skku.edu/pmwiki/uploads/Courses/ProgrammingLanguages/ANTLR-tutorial.pdf)
