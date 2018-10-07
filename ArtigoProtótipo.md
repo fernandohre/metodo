@@ -15,7 +15,7 @@ Com o fim didático de apresentar a ferramenta como algo que pode ser utilizada 
 Para começar a utilizar o ANTLR a primeira coisa que precisamos fazer é definir uma gramática formal, composta principalmente por dois componentes, os _lexers_ (analisadores léxicos) e _parsers_ (analisadores sintáticos).
 Os _lexers_ identificam cada menor unidade de entrada e agrupam ela em símbolos, como por exemplo: definindo as regras léxicas para, a entrada "437 + 734" será interpretada pelo lexer, como cada dígito sendo um número, e os espaços como _whitespace_. O _lexer_ também definirá que todos os números juntos antes de um _whitespace_ ou caractere diferente será por si um número também. Essas definições de número e _whitespace,_ são os símbolos (_tokens_) e são usados pelo _parser_ como elementos de texto mínimos que serão identificados numa expressão. Nesse caso, a regra de _parser_ irá identificar que um token número, seguido do símbolo "+" e outro token número, constituem uma expressão e chama isso de "adição". O ANTLR oferece suporte para a geração de _lexers_ e de _parsers_, cuja forma de criação de ambos será posteriormente explicada neste artigo.
 
-**Colar aqui a imagem do lexer**
+![imagem_lexer](./imagens/lexer-parser-center-1030x187.png)
 
 Como o ANTLR sabe quais são os tokens, como ele consegue distinguir que isso é uma operação matemática? Simples, nós o "ensinamos" ao criar a gramática formal.
 
