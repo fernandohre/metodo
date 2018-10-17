@@ -1,0 +1,107 @@
+/*
+ * Lexer Rules
+ */
+ 
+fragment DIGIT      : [0-9] ;
+ 
+NUM                 : DIGIT ;
+ 
+NOTNUM              : ~NUM ;
+
+/*
+ * Parser Rules
+ */
+
+zero   : NOTNUM '0' NOTNUM ;
+um     : NOTNUM '1' NOTNUM ;
+dois   : NOTNUM '2' NOTNUM ;
+tres   : NOTNUM '3' NOTNUM ; 
+quatro : NOTNUM '4' NOTNUM ; 
+cinco  : NOTNUM '5' NOTNUM ;
+seis   : NOTNUM '6' NOTNUM ;
+sete   : NOTNUM '7' NOTNUM ;
+oito   : NOTNUM '8' NOTNUM ;
+nove   : NOTNUM '9' NOTNUM ;
+
+eum     : NUM '1' NOTNUM ;
+edois   : NUM '2' NOTNUM ;
+etres   : NUM '3' NOTNUM ; 
+equatro : NUM '4' NOTNUM ; 
+ecinco  : NUM '5' NOTNUM ;
+eseis   : NUM '6' NOTNUM ;
+esete   : NUM '7' NOTNUM ;
+eoito   : NUM '8' NOTNUM ;
+enove   : NUM '9' NOTNUM ;
+
+dez       : NOTNUM '1' '0' NOTNUM ;
+onze      : NOTNUM '1' '1' NOTNUM ;
+doze      : NOTNUM '1' '2' NOTNUM ;
+treze     : NOTNUM '1' '3' NOTNUM ;
+catorze   : NOTNUM '1' '4' NOTNUM ;
+quinze    : NOTNUM '1' '5' NOTNUM ;
+dezesseis : NOTNUM '1' '6' NOTNUM ;
+dezessete : NOTNUM '1' '7' NOTNUM ;
+dezoito   : NOTNUM '1' '8' NOTNUM ;
+dezenove  : NOTNUM '1' '9' NOTNUM ;
+
+edez       : NUM '1' '0' NOTNUM ;
+eonze      : NUM '1' '1' NOTNUM ;
+edoze      : NUM '1' '2' NOTNUM ;
+etreze     : NUM '1' '3' NOTNUM ;
+ecatorze   : NUM '1' '4' NOTNUM ;
+equinze    : NUM '1' '5' NOTNUM ;
+edezesseis : NUM '1' '6' NOTNUM ;
+edezessete : NUM '1' '7' NOTNUM ;
+edezoito   : NUM '1' '8' NOTNUM ;
+edezenove  : NUM '1' '9' NOTNUM ;
+
+vinte     : NOTNUM '2' NUM NOTNUM ;
+trinta    : NOTNUM '3' NUM NOTNUM ;
+quarenta  : NOTNUM '4' NUM NOTNUM ;
+cinquenta : NOTNUM '5' NUM NOTNUM ;
+sessenta  : NOTNUM '6' NUM NOTNUM ;
+setenta   : NOTNUM '7' NUM NOTNUM ;
+oitenta   : NOTNUM '8' NUM NOTNUM ;
+noventa   : NOTNUM '9' NUM NOTNUM ;
+
+evinte     : NUM '2' NUM NOTNUM ;
+etrinta    : NUM '3' NUM NOTNUM ;
+equarenta  : NUM '4' NUM NOTNUM ;
+ecinquenta : NUM '5' NUM NOTNUM ;
+esessenta  : NUM '6' NUM NOTNUM ;
+esetenta   : NUM '7' NUM NOTNUM ;
+eoitenta   : NUM '8' NUM NOTNUM ;
+enoventa   : NUM '9' NUM NOTNUM ;
+
+cem : NOTNUM '1' '0' '0' NOTNUM ;
+cento :  NUM '1' NUM NUM NOTNUM ;
+
+duzentos     : '2' NUM NUM NOTNUM ;
+trezentos    : '3' NUM NUM NOTNUM ;
+quatrocentos : '4' NUM NUM NOTNUM ;
+quinhentos   : '5' NUM NUM NOTNUM ;
+seiscentos   : '6' NUM NUM NOTNUM ;
+setecentos   : '7' NUM NUM NOTNUM ;
+oitocentos   : '8' NUM NUM NOTNUM ; 
+novecentos   : '9' NUM NUM NOTNUM ;
+
+ecem          : NUM 1 0 0 NOTNUM ;
+eduzentos     : NUM 2 0 0 NOTNUM ;
+etrezentos    : NUM 3 0 0 NOTNUM ;
+equatrocentos : NUM 4 0 0 NOTNUM ;
+equinhentos   : NUM 5 0 0 NOTNUM ;
+eseiscentos   : NUM 6 0 0 NOTNUM ;
+esetecentos   : NUM 7 0 0 NOTNUM ;
+eoitocentos   : NUM 8 0 0 NOTNUM ;
+enovecentos   : NUM 9 0 0 NOTNUM ;
+
+mil       : 1 NUM NUM NUM NOTNUM ;
+doismil   : 2 NUM NUM NUM NOTNUM ;
+tresmil   : 3 NUM NUM NUM NOTNUM ;
+quatromil : 4 NUM NUM NUM NOTNUM ;
+cincomil  : 5 NUM NUM NUM NOTNUM ;
+seismil   : 6 NUM NUM NUM NOTNUM ;
+setemil   : 7 NUM NUM NUM NOTNUM ;
+oitomil   : 8 NUM NUM NUM NOTNUM ;
+novemil   : 9 NUM NUM NUM NOTNUM ;
+
