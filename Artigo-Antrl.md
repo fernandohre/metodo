@@ -1,10 +1,11 @@
 # ANTLR - _Another Tool For Language Recognition_
 
 ### Discentes
-> Fernando Henrique Callata, Kayo Martins, 
+> Fernando Henrique Callata, 
+> Kayo Martins, 
 > Murillo Gordo, 
-> Marcos Rafael de Souza, 
-> Saulo Calixto
+> Marcos Rafael de Sousa, 
+> Saulo Calixto.
 
 ## 1. Introdução
 
