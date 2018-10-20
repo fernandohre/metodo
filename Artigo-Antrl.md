@@ -4,7 +4,7 @@
 > Fernando Henrique Callata, 
 > Kayo Martins, 
 > Murillo Gordo, 
-> Marcos Rafael de Sousa, 
+> Marcos Rafael Lapa de Sousa, 
 > Saulo Calixto.
 
 ## 1. Introdução
