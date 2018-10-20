@@ -18,7 +18,7 @@ Com o fim didático de apresentar a ferramenta como algo que pode ser utilizada 
 
 Para começar a utilizar o ANTLR a primeira coisa que precisamos fazer é definir uma gramática formal, composta principalmente por dois componentes, os _lexers_ (analisadores léxicos) e _parsers_ (analisadores sintáticos).
 
-Os _lexers_ identificam cada menor unidade de entrada e agrupam ela em símbolos, como por exemplo: definindo as regras léxicas para, a entrada "437 + 734" será interpretada pelo lexer, como cada dígito sendo um número, e os espaços como _whitespace_. O _lexer_ também definirá que todos os números juntos antes de um _whitespace_ ou caractere diferente será por si um número também. Essas definições de número e _whitespace,_ são os símbolos (_tokens_) e são usados pelo _parser_ como elementos de texto mínimos que serão identificados numa expressão. Nesse caso, a regra de _parser_ irá identificar que um token número, seguido do símbolo "+" e outro token número, constituem uma expressão e chama isso de "adição". O ANTLR oferece suporte para a geração de _lexers_ e de _parsers_, cuja forma de criação de ambos será posteriormente explicada neste artigo.
+Os _lexers_ identificam cada menor unidade de entrada e agrupam ela em símbolos, como por exemplo: definindo as regras léxicas para, a entrada "46 * 854" será interpretada pelo lexer, como cada número sendo representado com o simbolo _"número"_, e os espaços como _"whitespace"_. O _lexer_ também definirá que todos os números juntos antes de um _whitespace_ ou caractere diferente será por si um número também. Essas definições de número e _whitespace,_ são os símbolos (_tokens_) e são usados pelo _parser_ como elementos de texto mínimos que serão identificados numa expressão. Nesse caso, a regra de _parser_ irá identificar que um token número, seguido do símbolo "*" e outro token número, constituem uma expressão e chama isso de "multiplicação". O ANTLR oferece suporte para a geração de _lexers_ e de _parsers_, cuja forma de criação de ambos será posteriormente explicada neste artigo.
 
 ![imagem_lexer](./imagens/lexer-parser-center-1030x187.png)
 
@@ -112,3 +112,9 @@ Depois de configurado o Pom, basta colocar as gramáticas geradas dentro da past
 $~ mvn package
 ```
 Esse comando gerará o lexer e o parser  e eles serão compilados com o resto do seu código.
+
+## 4. Criando uma gramática
+
+Existem duas grandes estratégias que pode-se adotar ao criar uma gramática, a de cima para baixo consiste em começar com a organização geral de como um arquivo é organizado, quais suas seções, qual a ordem, o que tem em cada seção, e assim ir especificando para regras mais baixo nível até a menor parte. Esta estratégia é boa quando quem está definindo a gramática tem um bom conhecimento teórico para conhecer toda a organização do arquivo em que está trabalhando.
+
+Alternativamente, e mais comumente, podemos atacar o problema de baixo para cima, inicialmente definindo os tokens, como eles se agrupam e as expressões básicas aplicadas a eles, e após isso definimos estruturas de mais alto nível e organização do arquivo. Esta estratégia permite começar com parte menores, seguir um raciocínio mais simples subindo de nível aos poucos ao invés de saber toda a organização do arquivo desde o início.
