@@ -44,13 +44,13 @@ Nas regras de parsing nós utilizamos os tokens para definir o que fazer com ele
 
 A gramática formal é necessária para que o ANTRL possa analisar o código passado, definindo ela podemos usar essa ferramenta para resolver diversos problemas, como um gerador de querys sql, análise de textos de buscas, etc.
 
-## 3. Instalação do ANTLR
+## 3. Como o ANTLR funciona?
 O Antlr é composto de duas partes, a ferramenta que tem o papel de criar o analisador léxico e o analisador sintático. Além disso tem o runtime responsável por aplicar a gramática.
 
 Uma vez que a gramática esteja criada você poderá usá-la nas mais diferentes soluções: Java, Python, C#, Javascript, etc. Ou seja, o Antlr te dá a possibilidade de trabalhar em diversas linguagens, o que diferencia é apenas o runtime que é especifico para cada linguagem.
 
 A despeito das diversas variedades de linguagens em que o Antlr pode ser aplicado, nesse artigo abordaremos sua aplicação apenas em Java.
-Todos os exemplos da instalação serão dados para o ambiente Linux, contudo
+Todos os exemplos da instalação serão dados para o ambiente Linux.
 
 ### 3.1. Configurando o Antlr
 O Antlr pode ser baixado do [site oficial](http://www.antlr.org/download/antlr-4.7.1-complete.jar).
