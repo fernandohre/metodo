@@ -1,7 +1,7 @@
-package com.github.saulocalixto.calculadoraantlr;
+package br.ufg.inf.dev.calculadoraantlr;
 
-import com.github.saulocalixto.calculadoraantlr.antlr.calculadoraLexer;
-import com.github.saulocalixto.calculadoraantlr.antlr.calculadoraParser;
+import br.ufg.inf.dev.calculadoraantlr.antlr.calculadoraLexer;
+import br.ufg.inf.dev.calculadoraantlr.antlr.calculadoraParser;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;

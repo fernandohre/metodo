@@ -1,8 +1,8 @@
-package com.github.saulocalixto.calculadoraantlr;
+package br.ufg.inf.dev.calculadoraantlr;
 
-import com.github.saulocalixto.calculadoraantlr.antlr.calculadoraBaseListener;
-import com.github.saulocalixto.calculadoraantlr.antlr.calculadoraParser;
-import com.sun.istack.internal.NotNull;
+import br.ufg.inf.dev.calculadoraantlr.antlr.calculadoraBaseListener;
+import br.ufg.inf.dev.calculadoraantlr.antlr.calculadoraParser;
+import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 
