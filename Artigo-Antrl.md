@@ -44,6 +44,12 @@ Nas regras de parsing nós utilizamos os tokens para definir o que fazer com ele
 
 A gramática formal é necessária para que o ANTRL possa analisar o código passado, definindo ela podemos usar essa ferramenta para resolver diversos problemas, como um gerador de querys sql, análise de textos de buscas, etc.
 
+### 2.1. Tipos de gramática
+
+Existem duas grandes estratégias que pode-se adotar ao criar uma gramática, a de cima para baixo consiste em começar com a organização geral de como um arquivo é organizado, quais suas seções, qual a ordem, o que tem em cada seção, e assim ir especificando para regras mais baixo nível até a menor parte. Esta estratégia é boa quando quem está definindo a gramática tem um bom conhecimento teórico para conhecer toda a organização do arquivo em que está trabalhando.
+
+Alternativamente, e mais comumente, podemos atacar o problema de baixo para cima, inicialmente definindo os tokens, como eles se agrupam e as expressões básicas aplicadas a eles, e após isso definimos estruturas de mais alto nível e organização do arquivo. Esta estratégia permite começar com parte menores, seguir um raciocínio mais simples subindo de nível aos poucos ao invés de saber toda a organização do arquivo desde o início.
+
 ## 3. Como o ANTLR funciona?
 O Antlr é composto de duas partes, a ferramenta que tem o papel de criar o analisador léxico e o analisador sintático. Além disso tem o runtime responsável por aplicar a gramática.
 
@@ -114,8 +120,68 @@ $~ mvn package
 ```
 Esse comando gerará o lexer e o parser  e eles serão compilados com o resto do seu código.
 
-## 4. Criando uma gramática
+## 4. Usando o ANTLR
+Após ter tudo configurado podemos finalmente criar nossa primeira gramática.
+As gramáticas no Antrl são guardadas em arquivos com extensão *.g4* e possuem um cabeçalho que indica o nome da gramática. Então a primeira coisa que precisamos fazer é criar o arquivo da gramática:
+```
+$~ touch calculadora.g4
+$~ nano calculadora.g4
+```
+A primeira coisa que precisamos definir é o nome da gramática e o fazemos com a palavra reservada *grammar* seguida do nome da gramática, **que deve ser o mesmo nome do arquivo**.
+Uma informação importante é que ao final de cada declaração deve-se colocar o "**;**" para indicar que foi finalizada a declaração.
+Pode-se começar definindo primeiramente os analisadores sintáticos e depois os léxicos.
+Vamos criar aqui uma gramática simples de calculadora. Ela apenas receberá uma expressão matemática que contém apenas os operadores **+ - * /**. Ela será responsável por avaliar a expressão passada.
 
-Existem duas grandes estratégias que pode-se adotar ao criar uma gramática, a de cima para baixo consiste em começar com a organização geral de como um arquivo é organizado, quais suas seções, qual a ordem, o que tem em cada seção, e assim ir especificando para regras mais baixo nível até a menor parte. Esta estratégia é boa quando quem está definindo a gramática tem um bom conhecimento teórico para conhecer toda a organização do arquivo em que está trabalhando.
+```
+grammar calculadora;  
+  
+/*  
+*Analisador sintático  
+**/  
+  
+prog: expr;  
+expr: expr op=('*'|'/') expr  # OpBin  
+    | expr op=('+'|'-') expr  # OpBin  
+    | '(' expr ')'            # par  
+    | INT                     # num  
+    ;  
+  
+/*  
+*Analisador léxico  
+**/  
+  
+INT : ('0'..'9')+ ;
+```
+Essa é a nossa gramática. Primeiramente foi definido apenas o token INT o qual pode ser formado de dígitos que vão de 0 à 9, podendo ter mais de um dígito. Além disso os operadores e os parênteses também são tokens que não foram definidos formalmente, mas são usados no analisador sintático.
+No analisador sintático temos um *prog* que é formado por uma *expr*, essa por sua vez pode ser formada por outras *expr*, números, operadores ou parênteses.
+É bom notar que a regra *expr* é formado por 4 linhas, cada linha representa uma possibilidade para a regra e o pipe **|** indica que qualquer uma dessas expressões são válidas.  Ao final de cada opção é dado um nome para ela indicado pelo caractere **#**.
 
-Alternativamente, e mais comumente, podemos atacar o problema de baixo para cima, inicialmente definindo os tokens, como eles se agrupam e as expressões básicas aplicadas a eles, e após isso definimos estruturas de mais alto nível e organização do arquivo. Esta estratégia permite começar com parte menores, seguir um raciocínio mais simples subindo de nível aos poucos ao invés de saber toda a organização do arquivo desde o início.
+### 4.1. Usando a gramática em um projeto Java
+
+Agora que a gramática está pronta o próprio ANTLR se encarregará de gerar os arquivos necessários para podermos usá-la em nosso projeto Java.
+A primeira coisa a fazer é *"compilar"* a gramática com o antlr4, para isso basta rodar o comando:
+```
+$~ antlr4 Calculadora.g4
+```
+Após esse comando rodamos o compilador java para poder gerar os arquivos necessários para usarmos a gramática:
+```
+$~ javac Calculadora*.java
+```
+Após esse comando ser rodado vários arquivos *.java* são gerados, entre eles os parsers, os lexers, os listeners, etc. Esses arquivos java precisam ser adicionados aos projetos java criado para que eles possam ser usados.
+Um dos arquivos mais importantes gerados é o *CalculadoraListener*, nele teremos vários métodos de entradas e saída que vão representar cada regra sintática criada. Podemos sobreescrever esses métodos afim de podermos usar os dados gerados pelo analisador em nosso software.
+Os arquivos de Lexers e Parsers representam as regras que nós criamos na gramática, não precisamos mexer neles.
+Nesse ponto já temos todo o insumo necessário para podermos usar nossa gramática. Caso queiramos obter os resultados do parser basta implementarmos o Listener e sobreescrever os métodos das regras, fazendo o tratamento que acharmos pertinente.
+Não entraremos em detalhes da implementação, pois isso vai depender do uso que você deseja dar para sua gramática, contudo, caso queira entender melhor como foi feito, basta acessar nosso projeto no [github](./Projeto/calculadoraantlr).
+
+## 5. Conclusão
+O Antlr é de fato uma ferramenta muito útil, pois ela facilita a vida do desenvolvedor ajudando-o a criar sua própria linguagem. Fazer todo esse processo de receber uma entrada e formatar ela para uma linguagem conhecida demandaria muito esforço e um bom conhecimento de *expressões regulares*.
+Por mais que dê para fazer isso sem o Antlr, o esforço para tal seria hérculeo e pouco proveitoso.
+A utilidade do Antlr vem sendo provada ao longo dos anos com a quantidade de soluções que lançam mão dessa poderosa ferramenta em seus projetos.
+Esperamos que com esse artigo o leitor possa ter tido um vislumbre da ferramenta, de como dar os primeiros passos e como ela pode ser útil no dia a dia.
+
+## 6. Referências
+  1. [ANTLR](http://www.antlr.org/)
+  2. [The ANTLR Mega Tutorial](https://tomassetti.me/antlr-mega-tutorial/)
+  3. [ANTLR Repository](https://github.com/antlr/antlr4)
+  4. [Sung Kyun Kwan University ANTLR Tutorial](http://arcs.skku.edu/pmwiki/uploads/Courses/ProgrammingLanguages/ANTLR-tutorial.pdf)
+  5. [MinhaCalculadora](https://gist.github.com/lrlucena/b150cba803ddab1005d3)
