@@ -120,6 +120,7 @@ $~ mvn package
 ```
 Esse comando gerará o _lexer_ e o _parser_ e eles serão compilados com o resto do seu código.
 
+
 ## 4. Usando o ANTLR
 Após ter tudo configurado pode-se finalmente criar uma gramática.
 As gramáticas no Antlr são guardadas em arquivos com extensão *.g4* e possuem um cabeçalho que indica o nome da gramática. Então a primeira coisa que precisamos fazer é criar o arquivo da gramática:
@@ -133,26 +134,32 @@ Pode-se começar definindo primeiramente os analisadores sintáticos e depois os
 Segue uma demonstração da criação de uma gramática simples de calculadora. Ela apenas receberá uma expressão matemática que contém apenas os operadores **+ - * /** e será responsável por avaliá-la.
 
 ```
-grammar calculadora;  
+grammar Calculadora;  
   
 /*  
 *Analisador sintático  
 **/  
   
 prog: expr;  
-expr: expr op=('*'|'/') expr  # OpBin  
-    | expr op=('+'|'-') expr  # OpBin  
-    | '(' expr ')'            # par  
-    | INT                     # num  
-    ;  
+expr: expr op=(MULT|DIV) expr  # OpBin  
+  | expr op=(MAIS|MENOS) expr  # OpBin  
+  | PARENTABER expr PARENTFECH # par  
+  | INT                        # num  
+  ;  
   
 /*  
 *Analisador léxico  
 **/  
   
-INT : ('0'..'9')+ ;
+INT : ('0'..'9')+ ;  
+MAIS : '+' ;  
+MENOS : '-' ;  
+MULT : '*' ;  
+DIV : '/' ;  
+PARENTABER : '(' ;  
+PARENTFECH : ')' ;
 ```
-Essa é a gramática definida. Primeiramente foi denotado apenas o token INT, o qual pode ser formado de dígitos que vão de 0 à 9, podendo ter mais de um dígito. Além disso os operadores e os parênteses também são tokens que não foram definidos formalmente, mas são utilizados no analisador sintático.
+Essa é a gramática definida. Primeiramente foi denotado o token INT, o qual pode ser formado de dígitos que vão de 0 à 9, podendo ter mais de um dígito. Além dele foi definido também os tokens: MAIS, MENOS, MULT, DIV PARENTABER, PARENTFECH. Os tokens são usados nas regras sintáticas e possuem ordem certa para aparecerem, como ficou definido acima, por exemplo uma expressão não pode começar com PARENTFECH, ou ter dois operadores seguidos.
 No analisador sintático temos um *prog* que é formado por uma *expr*, essa por sua vez pode ser formada por outras *expr*, números, operadores ou parênteses.
 É bom notar que a regra *expr* é formado por 4 linhas, cada linha representa uma possibilidade para a regra e o pipe **|** indica que qualquer uma dessas expressões são válidas.  Ao final de cada opção é dado um nome para ela indicado pelo caractere **#**.
 
