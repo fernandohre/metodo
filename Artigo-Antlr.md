@@ -44,7 +44,7 @@ Nas regras de parsing os tokens são utilizados, e é definido o que fazer com e
 
 A gramática formal é necessária para que o ANTLR possa analisar o código passado, definindo ela podemos usar essa ferramenta para resolver diversos problemas, como um gerador de querys sql, análise de textos de buscas, etc.
 
-### 2.1. Tipos de gramática
+### 2.1. Abordagens para criar uma gramática
 
 Existem duas grandes estratégias que pode-se adotar ao criar uma gramática, a de cima para baixo consiste em começar com a organização geral de como um arquivo é organizado, quais suas seções, qual a ordem, o que tem em cada seção, e assim ir especificando para regras mais baixo nível até a menor parte. Esta estratégia é boa quando quem está definindo a gramática tem um bom conhecimento teórico para conhecer toda a organização do arquivo em que está trabalhando.
 
