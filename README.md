@@ -13,6 +13,12 @@
   
   Em um primeiro momento a ideia é oferecer um tutorial para o uso da ferramenta de parser ANTLR. Além disso também é foco do trabalho mostrar os benefícios de se utilizar essa ferramenta para auxílio no desenvolvimento.
   
+  ## Artefatos gerados
+  
+  * [Artigo](./Artigo-Antlr.md);
+  * [Vídeo](https://youtu.be/1DosoPzTYt8);
+  * [Apresentação](./Apresentação%20ANTLR.pdf)
+  
   ## Planjemento das atividades:
 
 | Atividade  | Período | Envolvidos |
